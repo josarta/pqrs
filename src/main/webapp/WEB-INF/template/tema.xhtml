@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <title>PQRS/Usuario</title>
+        <!-- plugins:css -->
+        <link rel="stylesheet" href="#{request.contextPath}/assetstema/vendors/iconfonts/mdi/css/materialdesignicons.min.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/assetstema/vendors/iconfonts/ionicons/dist/css/ionicons.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/assetstema/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/assetstema/vendors/css/vendor.bundle.base.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/assetstema/vendors/css/vendor.bundle.addons.css"/>
+        <!-- endinject -->
+        <!-- plugin css for this page -->
+        <!-- End plugin css for this page -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="#{request.contextPath}/assetstema/css/shared/style.css"/>
+        <!-- endinject -->
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="#{request.contextPath}/assetstema/css/demo_1/style.css"/>
+        <!-- End Layout styles -->
+        <link rel="shortcut icon" href="#{request.contextPath}/assetstema/images/favicon.ico" />
+    </h:head>
+    <h:body>
+        <div class="container-scroller">
+            <!-- partial:partials/_navbar.html -->
+            <ui:insert name="areanotificacion">
+                <ui:include src="areanotificacion.xhtml"></ui:include>
+            </ui:insert>
+            
+            <!-- partial -->
+            <div class="container-fluid page-body-wrapper">
+                <!-- partial:partials/_sidebar.html -->
+                
+                <ui:insert name="menuvertical">
+                    <ui:include src="menuvertical.xhtml"></ui:include>
+                </ui:insert>             
+                
+                <!-- partial -->
+                <div class="main-panel">                    
+                    <ui:insert name="areatrabajo">
+                        <ui:include src="areatrabajo.xhtml"></ui:include>
+                    </ui:insert>
+                    <!-- content-wrapper ends -->          
+                    <!-- partial:partials/_footer.html -->
+                    <ui:insert name="piepagina">
+                        <ui:include src="piepagina.xhtml"></ui:include>
+                    </ui:insert>
+                    <!-- partial -->               
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        <script src="#{request.contextPath}/assetstema/vendors/js/vendor.bundle.base.js"></script>
+        <script src="#{request.contextPath}/assetstema/vendors/js/vendor.bundle.addons.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page-->
+        <!-- End plugin js for this page-->
+        <!-- inject:js -->
+        <script src="#{request.contextPath}/assetstema/js/shared/off-canvas.js"></script>
+        <script src="#{request.contextPath}/assetstema/js/shared/misc.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        <script src="#{request.contextPath}/assetstema/js/demo_1/dashboard.js"></script>
+        <!-- End custom js for this page-->
+        <script src="#{request.contextPath}/assetstema/js/shared/jquery.cookie.js" type="text/javascript"></script>
+    </h:body>
+</html>
+
