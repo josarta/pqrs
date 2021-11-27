@@ -21,4 +21,24 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    <data-source>
+        <name>java:app/ds_pqrs</name>
+        <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
+        <server-name>localhost</server-name>
+        <port-number>3306</port-number>
+        <database-name>pqrs</database-name>
+        <user>root</user>
+        <password>root</password>
+        <property>
+            <name>useSSL</name>
+            <value>false</value>
+        </property>
+        <property>
+            <name>serverTimeZone</name>
+            <value>UTC</value>
+        </property>
+        <initial-pool-size>8</initial-pool-size>
+        <max-pool-size>32</max-pool-size>
+        <min-pool-size>8</min-pool-size>
+    </data-source>
 </web-app>

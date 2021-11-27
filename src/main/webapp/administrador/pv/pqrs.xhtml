@@ -5,7 +5,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <ui:composition>
-                <div class="content-wrapper">
+        <div class="content-wrapper">
             <!-- Page Title Header Starts-->
             <div class="row page-title-header">
                 <div class="col-12">
@@ -13,7 +13,7 @@
                         <h4 class="page-title">Administrador</h4>
                         <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
                             <ul class="quick-links ml-auto">
-                                <li><a href="#">Gestion de Usuarios</a></li>
+                                <li><a href="#">Gestion de PQRS</a></li>
                             </ul>
                         </div>
                     </div>
@@ -27,10 +27,10 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
-                                        <h4 class="card-title mb-0">Usuarios</h4>
-                                        <a href="usuarionuevo.xhtml"><small>Crear usuario</small></a>
+                                        <h4 class="card-title mb-0">PQRS</h4>
+                                        <a href="#"><small>Ver todo</small></a>
                                     </div>
-                                    <p>Lista sistema.</p>
+                                    <p>PQRS</p>
                                     <div class="table-responsive">
 
 
@@ -39,25 +39,27 @@
                                             <thead>
                                                 <tr>
                                                     <th>Codigo</th>
-                                                    <th>Tipo Documento</th>
-                                                    <th>Numero Documento</th>
-                                                    <th>Nombres</th>
-                                                    <th>Apellidos</th>
-                                                    <th>Correo electronico</th>
-                                                    <th>Estado</th>
+                                                    <th>Usuario crea</th>
+                                                    <th>Fecha creacion</th>
+                                                    <th>Administrador asigna</th>
+                                                    <th>Fecha asignacion</th>
+                                                    <th>Empleado responde</th>
+                                                    <th>Fecha respuesta</th>
+                                                    <th>Estado</th>    
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="usu" items="#{usuarioSession.leerTodo()}">
+                                                <c:forEach var="pq" items="#{pqrsView.leerTodos()}">
                                                     <tr>
-                                                        <td>#{usu.usuUsuarioid}</td>
-                                                        <td>#{usu.usuTipodocumento}</td>
-                                                        <td>#{usu.usuDocumento}</td>
-                                                        <td>#{usu.usuNombres}</td>
-                                                        <td>#{usu.usuApellidos}</td>
-                                                        <td>#{usu.usuCorreoelectronico}</td>
-                                                        <td>#{usu.usuEstado}</td>
+                                                        <td>#{pq.pqrPqrsid}</td>
+                                                        <td>#{pq.usuario.usuNombres} #{pq.usuario.usuApellidos} </td>
+                                                        <td>#{pq.pquFechacreacion}</td>                                                      
+                                                        <td>#{pq.usuario1.usuNombres} #{pq.usuario1.usuApellidos} </td>
+                                                        <td>#{pq.pquFechaasignacion}</td>                                                       
+                                                        <td>#{pq.usuario2.usuNombres} #{pq.usuario2.usuApellidos} </td>
+                                                        <td>#{pq.pquFecharespuesta}</td>                                               
+                                                        <td>#{pq.pquEstado}</td>                                                        
                                                         <td>...</td>                                                    
                                                     </tr>    
                                                 </c:forEach>
@@ -74,4 +76,5 @@
         </div>
     </ui:composition>
 </html>
+
 

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+        <div class="content-wrapper">
+            <!-- Page Title Header Starts-->
+            <div class="row page-title-header">
+                <div class="col-12">
+                    <div class="page-header">
+                        <h4 class="page-title">Administrador</h4>
+                        <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
+                            <ul class="quick-links ml-auto">
+                                <li><a href="#">Crear usuario</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Title Header Ends-->
+            <div class="row">
+                <div class="col-md-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">NUevo usuarios</h4>
+                            <p class="card-description"> Completar todos los campos </p>
+
+                            <c:if test="#{usuarioSession.flag.equalsIgnoreCase('error')}">
+                                <div class="alert alert-danger" role="alert">
+                                    Error creando usuario!
+                                </div>
+                            </c:if>
+
+                            <c:if test="#{usuarioSession.flag.equalsIgnoreCase('ok')}">
+                                <div class="alert alert-success" role="alert">
+                                    Usuario creado con exito !!!
+                                </div>
+                            </c:if>
+
+                            <h:form class="forms-sample">
+                                <h:messages style="color: red"></h:messages>
+                                <div class="form-group">
+                                    <h:outputLabel for="new_td">Tipo Documento</h:outputLabel>
+                                    <h:selectOneMenu value="#{usuarioSession.usureg.usuTipodocumento}" class="form-control form-control-lg" id="new_td">
+                                        <f:selectItem itemLabel="Cedula" itemValue="Cedula"></f:selectItem>
+                                        <f:selectItem itemLabel="T. Identidad" itemValue="T. Identidad"></f:selectItem>
+                                        <f:selectItem itemLabel="C. Extranjeria" itemValue="C. Extranjeria"></f:selectItem>
+                                        <f:selectItem itemLabel="Pasaporte" itemValue="Pasaporte"></f:selectItem>
+                                        <f:selectItem itemLabel="Otros" itemValue="Otros"></f:selectItem>
+                                    </h:selectOneMenu>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel for="new_doc">Documento</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        requiredMessage="Ingresar un numero de documento"
+                                        value="#{usuarioSession.usureg.usuDocumento}" 
+                                        class="form-control" id="new_doc" 
+                                        html5:placeholder="Documento"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel for="new_nombres">Nombres</h:outputLabel>
+                                    <h:inputText
+                                        required="true"
+                                        requiredMessage="Ingresar un nombre."
+                                        value="#{usuarioSession.usureg.usuNombres}" class="form-control" id="new_nombres" html5:placeholder="Nombres"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel for="new_apellidos">Apellidos</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        requiredMessage="Ingresar un apellido"
+                                        value="#{usuarioSession.usureg.usuApellidos}" class="form-control" id="new_apellidos" html5:placeholder="Apellidos"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel for="new_correo">Correo</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        requiredMessage="Ingresar correo electronico"
+                                        value="#{usuarioSession.usureg.usuCorreoelectronico}"  class="form-control" id="new_correo" html5:placeholder="Correo"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel for="new_clave">Clave</h:outputLabel>
+                                    <h:inputSecret 
+                                        required="true"
+                                        requiredMessage="Ingresar una clave"
+                                        value="#{usuarioSession.usureg.usuClave}" class="form-control" id="new_clave" html5:placeholder="Clave"/>
+                                </div>
+
+
+                                <h:commandButton type="submit" action="#{usuarioSession.ingresarUsuario()}" class="btn btn-success mr-2" value="Enviar" ></h:commandButton>
+                                <h:link  outcome="index" class="btn btn-light">Cancelar</h:link>
+                            </h:form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </ui:composition>
+</html>
+

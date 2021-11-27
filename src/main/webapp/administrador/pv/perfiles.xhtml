@@ -13,7 +13,7 @@
                         <h4 class="page-title">Administrador</h4>
                         <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
                             <ul class="quick-links ml-auto">
-                                <li><a href="#">Gestion de Usuarios</a></li>
+                                <li><a href="#">Gestion de Perfiles</a></li>
                             </ul>
                         </div>
                     </div>
@@ -27,10 +27,10 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
-                                        <h4 class="card-title mb-0">Usuarios</h4>
-                                        <a href="usuarionuevo.xhtml"><small>Crear usuario</small></a>
+                                        <h4 class="card-title mb-0">Perfiles</h4>
+                                        <a href="#"><small>Ver todo</small></a>
                                     </div>
-                                    <p>Lista sistema.</p>
+                                    <p>Perfiles - Roles.</p>
                                     <div class="table-responsive">
 
 
@@ -39,25 +39,19 @@
                                             <thead>
                                                 <tr>
                                                     <th>Codigo</th>
-                                                    <th>Tipo Documento</th>
-                                                    <th>Numero Documento</th>
-                                                    <th>Nombres</th>
-                                                    <th>Apellidos</th>
-                                                    <th>Correo electronico</th>
-                                                    <th>Estado</th>
+                                                    <th>Tipo</th>
+                                                    <th>Descripcion</th>
+                                                    <th>Ruta</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="usu" items="#{usuarioSession.leerTodo()}">
+                                                <c:forEach var="rol" items="#{usuarioSession.leerRoles()}">
                                                     <tr>
-                                                        <td>#{usu.usuUsuarioid}</td>
-                                                        <td>#{usu.usuTipodocumento}</td>
-                                                        <td>#{usu.usuDocumento}</td>
-                                                        <td>#{usu.usuNombres}</td>
-                                                        <td>#{usu.usuApellidos}</td>
-                                                        <td>#{usu.usuCorreoelectronico}</td>
-                                                        <td>#{usu.usuEstado}</td>
+                                                        <td>#{rol.rolRolid}</td>
+                                                        <td>#{rol.rolTipo}</td>
+                                                        <td>#{rol.rolDescripcion}</td>
+                                                        <td>#{rol.rolRuta}</td>
                                                         <td>...</td>                                                    
                                                     </tr>    
                                                 </c:forEach>

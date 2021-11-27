@@ -4,46 +4,64 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:composition>
-         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                    <ul class="nav">
-                        <li class="nav-item nav-profile">
-                            <a href="#" class="nav-link">
-                                <div class="profile-image">
-                                    <img class="img-xs rounded-circle" src="#{request.contextPath}/assetstema/images/faces/face8.jpg" alt="profile image"/>
-                                    <div class="dot-indicator bg-success"></div>
-                                </div>
-                                <div class="text-wrapper">
-                                    <p class="profile-name">${nombreUsuario}</p>
-                                    <p class="designation">${rol}</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item nav-category">Menu</li>
-                     
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                                <i class="menu-icon typcn typcn-coffee"></i>
-                                <span class="menu-title">Perfiles</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="ui-basic">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#{request.contextPath}/usuario/index.xhtml">Usuario</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#{request.contextPath}/cliente/index.xhtml">Cliente</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#{request.contextPath}/empleado/index.xhtml">Empleado</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        
-                  
-                    </ul>
-                </nav>   
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <a href="#" class="nav-link">
+                        <div class="profile-image">
+                            <img class="img-xs rounded-circle" src="#{request.contextPath}/assetstema/images/faces/face8.jpg" alt="profile image"/>
+                            <div class="dot-indicator bg-success"></div>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="profile-name">${nombreUsuario}</p>
+                            <p class="designation">${rol}</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item nav-category">Menu</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                        <i class="menu-icon typcn typcn-coffee"></i>
+                        <span class="menu-title">Perfiles</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#{request.contextPath}/usuario/index.xhtml">Usuario</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#{request.contextPath}/cliente/index.xhtml">Cliente</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#{request.contextPath}/empleado/index.xhtml">Empleado</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.xhtml">
+                        <i class="menu-icon typcn typcn-shopping-bag"></i>
+                        <span class="menu-title">Gestion usuarios</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="perfiles.xhtml">
+                        <i class="menu-icon typcn typcn-shopping-bag"></i>
+                        <span class="menu-title">Gestion perfiles</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pqrs.xhtml">
+                        <i class="menu-icon typcn typcn-shopping-bag"></i>
+                        <span class="menu-title">Gestion pqrs</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </nav>   
     </ui:composition>
 </html>
 
