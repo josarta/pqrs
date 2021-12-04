@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <ui:composition>
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
@@ -28,15 +29,11 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#{request.contextPath}/usuario/index.xhtml">Usuario</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#{request.contextPath}/cliente/index.xhtml">Cliente</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#{request.contextPath}/empleado/index.xhtml">Empleado</a>
-                            </li>
+                            <c:forEach var="rl" items="#{usuarioSession.usuLogin.rolCollection}">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#{request.contextPath}/#{rl.rolDescripcion}/index.xhtml">#{rl.rolTipo}</a>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </li>

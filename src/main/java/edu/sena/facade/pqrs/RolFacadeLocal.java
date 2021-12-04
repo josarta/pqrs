@@ -29,5 +29,9 @@ public interface RolFacadeLocal {
     List<Rol> findRange(int[] range);
 
     int count();
+
+    public List<Rol> leerTodo();
+
+    public boolean ingresarRol(Rol rolIn);
     
 }

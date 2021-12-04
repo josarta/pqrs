@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -22,6 +24,8 @@
         <link rel="stylesheet" href="#{request.contextPath}/assets/css/templatemo-digimedia-v3.css"/>
         <link rel="stylesheet" href="#{request.contextPath}/assets/css/animated.css"/>
         <link rel="stylesheet" href="#{request.contextPath}/assets/css/owl.css"/>
+        
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     </h:head>
     <h:body>
@@ -76,7 +80,7 @@
                             <ul class="nav">
                                 <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                                 <li class="scroll-to-section"><a href="#about">About</a></li>
-                                <li class="scroll-to-section"><a href="#services">Services</a></li>
+                                <li class="scroll-to-section"><a href="#services">Entry</a></li>
                                 <li class="scroll-to-section"><a href="#portfolio">Projects</a></li>
                                 <li class="scroll-to-section"><a href="#blog">Blog</a></li>
                                 <li class="scroll-to-section"><a href="#contact">Contact</a></li> 
@@ -226,33 +230,21 @@
                                             <div class="first-thumb active">
                                                 <div class="thumb">
                                                     <span class="icon"><img src="assets/images/service-icon-01.png" alt=""/></span>
-                                                    Apartments
+                                                    Login
                                                 </div>
                                             </div>
                                             <div>
                                                 <div class="thumb">                 
                                                     <span class="icon"><img src="assets/images/service-icon-02.png" alt=""/></span>
-                                                    Food &amp; Life
+                                                    Forgot Password
                                                 </div>
                                             </div>
                                             <div>
                                                 <div class="thumb">                 
                                                     <span class="icon"><img src="assets/images/service-icon-03.png" alt=""/></span>
-                                                    Cars
+                                                    Register
                                                 </div>
-                                            </div>
-                                            <div>
-                                                <div class="thumb">                 
-                                                    <span class="icon"><img src="assets/images/service-icon-04.png" alt=""/></span>
-                                                    Shopping
-                                                </div>
-                                            </div>
-                                            <div class="last-thumb">
-                                                <div class="thumb">                 
-                                                    <span class="icon"><img src="assets/images/service-icon-01.png" alt=""/></span>
-                                                    Traveling
-                                                </div>
-                                            </div>
+                                            </div>                                            
                                         </div>
                                     </div> 
                                     <div class="col-lg-12">
@@ -263,12 +255,37 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 align-self-center">
                                                                 <div class="left-text">
-                                                                    <h4>SEO Analysis &amp; Daily Reports</h4>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
-                                                                        dover lipsum lorem and the others.</p>
-                                                                    <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
-                                                                        <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                                                                    <h4>Login - PQRS</h4>
+                                                                    <h:form>
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleInputEmail1">Email address</h:outputLabel>
+                                                                            <h:inputText 
+                                                                                value="#{usuarioSession.correIn}"
+                                                                                required="true"
+                                                                                requiredMessage="Ingresar un valor valido."
+                                                                                html5:type="email"  
+                                                                                class="form-control" 
+                                                                                id="exampleInputEmail1" />
+                                                                            <small id="emailHelp" class="form-text text-muted">
+                                                                                <h:message for="exampleInputEmail1" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleInputPassword1">Password</h:outputLabel>
+                                                                            <h:inputSecret 
+                                                                                value="#{usuarioSession.claveIn}"
+                                                                                required="true"
+                                                                                requiredMessage="Ingresar un valor valido."
+                                                                                class="form-control" 
+                                                                                id="exampleInputPassword1"/>
+                                                                            <small id="passwordHelp" class="form-text text-muted">
+                                                                                <h:message for="exampleInputPassword1" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+                                                                        <br/>
+
+                                                                        <h:commandButton action="#{usuarioSession.validadUsuario()}" class="btn btn-primary" value="Submit"></h:commandButton>
+                                                                    </h:form>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 align-self-center">
@@ -286,12 +303,24 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 align-self-center">
                                                                 <div class="left-text">
-                                                                    <h4>Healthy Food &amp; Life</h4>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
-                                                                        dover lipsum lorem and the others.</p>
-                                                                    <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
-                                                                        <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                                                                    <h4>Forgot Password</h4>
+                                                                    <h:form>
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleInputEmail2">Email address</h:outputLabel>
+                                                                            <h:inputText 
+                                                                                required="true"
+                                                                                requiredMessage="Ingresar un valor valido."
+                                                                                html5:type="email"  
+                                                                                class="form-control" 
+                                                                                id="exampleInputEmail2" />
+                                                                            <small id="emailHelp2" class="form-text text-muted">
+                                                                                <h:message for="exampleInputEmail2" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+                                                                        <br/>
+
+                                                                        <h:commandButton  class="btn btn-primary" value="Submit"></h:commandButton>
+                                                                    </h:form>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 align-self-center">
@@ -309,12 +338,91 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 align-self-center">
                                                                 <div class="left-text">
-                                                                    <h4>Car Re-search &amp; Transport</h4>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
-                                                                        dover lipsum lorem and the others.</p>
-                                                                    <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
-                                                                        <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                                                                    <h4>Register</h4>
+                                                                    <h:form>
+
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleTypeDocument">Type Document</h:outputLabel>
+                                                                            <h:selectOneMenu value="#{usuarioSession.usureg.usuTipodocumento}" id="exampleTypeDocument" class="form-control">
+                                                                                <f:selectItem itemLabel="Cedula" itemValue="Cedula"></f:selectItem>
+                                                                                <f:selectItem itemLabel="Pasaporte" itemValue="Pasaporte"></f:selectItem>
+                                                                                <f:selectItem itemLabel="T. Identidad" itemValue="T. Identidad"></f:selectItem>
+                                                                                <f:selectItem itemLabel="Otros." itemValue="Otros."></f:selectItem>
+                                                                            </h:selectOneMenu>
+
+                                                                            <small id="typeDocumentHelp" class="form-text text-muted">
+                                                                                <h:message for="exampleTypeDocument" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleDocument">Document</h:outputLabel>
+                                                                            <h:inputText 
+                                                                                required="true"
+                                                                                value="#{usuarioSession.usureg.usuDocumento}"
+                                                                                html5:type="number"
+                                                                                requiredMessage="Ingresar un numero de documento valido."
+                                                                                class="form-control" 
+                                                                                id="exampleDocument" />
+                                                                            <small id="documentHelp" class="form-text text-muted">
+                                                                                <h:message for="exampleDocument" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleNames">Names</h:outputLabel>
+                                                                            <h:inputText 
+                                                                                required="true"
+                                                                                value="#{usuarioSession.usureg.usuNombres}"
+                                                                                requiredMessage="Ingresar un nombre valido."
+                                                                                class="form-control" 
+                                                                                id="exampleNames" />
+                                                                            <small id="namesHelp" class="form-text text-muted">
+                                                                                <h:message for="exampleNames" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleLastNames">Last name</h:outputLabel>
+                                                                            <h:inputText 
+                                                                                required="true"
+                                                                                value="#{usuarioSession.usureg.usuApellidos}"
+                                                                                requiredMessage="Ingresar un apellido valido."
+                                                                                class="form-control" 
+                                                                                id="exampleLastNames" />
+                                                                            <small id="lastNamesHelp" class="form-text text-muted">
+                                                                                <h:message for="exampleLastNames" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleInputEmail3">Email address</h:outputLabel>
+                                                                            <h:inputText 
+                                                                                required="true"
+                                                                                value="#{usuarioSession.usureg.usuCorreoelectronico}"
+                                                                                requiredMessage="Ingresar un valor valido."
+                                                                                html5:type="email"  
+                                                                                class="form-control" 
+                                                                                id="exampleInputEmail3" />
+                                                                            <small id="emailHelp3" class="form-text text-muted">
+                                                                                <h:message for="exampleInputEmail3" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <h:outputLabel for="exampleInputPassword2">Password</h:outputLabel>
+                                                                            <h:inputSecret 
+                                                                                required="true"
+                                                                                value="#{usuarioSession.usureg.usuClave}"
+                                                                                requiredMessage="Ingresar un valor valido."
+                                                                                class="form-control" 
+                                                                                id="exampleInputPassword2"/>
+                                                                            <small id="passwordHelp2" class="form-text text-muted">
+                                                                                <h:message for="exampleInputPassword2" style="color: red"></h:message>
+                                                                            </small>
+                                                                        </div>
+                                                                        <br/>
+
+                                                                        <h:commandButton action="#{usuarioSession.ingresarUsuario()}" class="btn btn-primary" value="Submit"></h:commandButton>
+                                                                    </h:form>    
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 align-self-center">

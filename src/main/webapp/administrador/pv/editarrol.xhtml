@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+        <div class="content-wrapper">
+            <!-- Page Title Header Starts-->
+            <div class="row page-title-header">
+                <div class="col-12">
+                    <div class="page-header">
+                        <h4 class="page-title">Administrador</h4>
+                        <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
+                            <ul class="quick-links ml-auto">
+                                <li><a href="#">Editar perfil</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Title Header Ends-->
+            <div class="row">
+                <div class="col-md-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Perfil</h4>
+                            <p class="card-description"> Completar todos los campos </p>
+
+                           
+                            <h:form class="forms-sample">
+                                <h:messages style="color: red"></h:messages>
+                                
+                                <div class="form-group">
+                                    <h:outputLabel for="new_doc">Tipo</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        requiredMessage="Ingresar un tipo de perfil"
+                                        value="#{rolSession.rolTemporal.rolTipo}" 
+                                        class="form-control" id="new_doc" 
+                                        html5:placeholder="Tipo"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel for="new_nombres">Descripcion</h:outputLabel>
+                                    <h:inputText
+                                        required="true"
+                                        requiredMessage="Ingresar una descripcion."
+                                        value="#{rolSession.rolTemporal.rolDescripcion}" class="form-control" id="new_nombres" html5:placeholder="Descripcion"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel for="new_apellidos">Ruta</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        requiredMessage="Ingresar una ruta"
+                                        value="#{rolSession.rolTemporal.rolRuta}" class="form-control" id="new_apellidos" html5:placeholder="Ruta"/>
+                                </div>
+                          
+                                <h:commandButton type="submit" action="#{rolSession.editarRol()}" class="btn btn-success mr-2" value="Enviar" ></h:commandButton>
+                                <h:link  outcome="perfiles" class="btn btn-light">Cancelar</h:link>
+                            </h:form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </ui:composition>
+</html>
+

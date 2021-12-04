@@ -5,7 +5,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <ui:composition>
-                <div class="content-wrapper">
+        <div class="content-wrapper">
             <!-- Page Title Header Starts-->
             <div class="row page-title-header">
                 <div class="col-12">
@@ -28,7 +28,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <h4 class="card-title mb-0">Perfiles</h4>
-                                        <a href="#"><small>Ver todo</small></a>
+                                        <a href="nuevoperfil.xhtml"><small>Nuevo perfil</small></a>
                                     </div>
                                     <p>Perfiles - Roles.</p>
                                     <div class="table-responsive">
@@ -46,15 +46,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="rol" items="#{usuarioSession.leerRoles()}">
-                                                    <tr>
-                                                        <td>#{rol.rolRolid}</td>
-                                                        <td>#{rol.rolTipo}</td>
-                                                        <td>#{rol.rolDescripcion}</td>
-                                                        <td>#{rol.rolRuta}</td>
-                                                        <td>...</td>                                                    
-                                                    </tr>    
-                                                </c:forEach>
+                                                <h:form>
+                                                    <c:forEach var="rol" items="#{usuarioSession.leerRoles()}">
+                                                        <tr>
+                                                            <td>#{rol.rolRolid}</td>
+                                                            <td>#{rol.rolTipo}</td>
+                                                            <td>#{rol.rolDescripcion}</td>
+                                                            <td>#{rol.rolRuta}</td>
+                                                            <td><h:commandButton action="#{rolSession.removerRol(rol)}" class="btn btn-outline-danger" value="Eliminar"></h:commandButton></td>      
+                                                            <td><h:commandButton action="#{rolSession.cargaRol(rol)}" class="btn btn-outline-primary" value="Actualizar"></h:commandButton></td>                                                    
+                                                        </tr>    
+                                                    </c:forEach>
+                                                </h:form>
                                             </tbody>
                                         </table>
                                     </div>

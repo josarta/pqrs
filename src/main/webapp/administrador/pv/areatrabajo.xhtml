@@ -5,7 +5,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <ui:composition>
-                <div class="content-wrapper">
+        <div class="content-wrapper">
             <!-- Page Title Header Starts-->
             <div class="row page-title-header">
                 <div class="col-12">
@@ -49,18 +49,36 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="usu" items="#{usuarioSession.leerTodo()}">
-                                                    <tr>
-                                                        <td>#{usu.usuUsuarioid}</td>
-                                                        <td>#{usu.usuTipodocumento}</td>
-                                                        <td>#{usu.usuDocumento}</td>
-                                                        <td>#{usu.usuNombres}</td>
-                                                        <td>#{usu.usuApellidos}</td>
-                                                        <td>#{usu.usuCorreoelectronico}</td>
-                                                        <td>#{usu.usuEstado}</td>
-                                                        <td>...</td>                                                    
-                                                    </tr>    
-                                                </c:forEach>
+                                                <h:form>
+                                                    <c:forEach var="usu" items="#{usuarioSession.leerTodo()}">
+                                                        <c:if test="#{usuarioSession.usuLogin.usuUsuarioid != usu.usuUsuarioid}">
+                                                            <tr>
+                                                                <td>#{usu.usuUsuarioid}</td>
+                                                                <td>#{usu.usuTipodocumento}</td>
+                                                                <td>#{usu.usuDocumento}</td>
+                                                                <td>#{usu.usuNombres}</td>
+                                                                <td>#{usu.usuApellidos}</td>
+                                                                <td>#{usu.usuCorreoelectronico}</td>
+                                                                <td>
+                                                                    <c:if test="#{usu.usuEstado == 1}">
+                                                                        <button type="button" class="btn btn-success">A</button>
+                                                                    </c:if>
+                                                                    <c:if test="#{usu.usuEstado == 0}">
+                                                                        <button type="button" class="btn btn-warning">I</button>
+                                                                    </c:if>
+                                                                </td>
+                                                                <td>
+                                                                    <h:commandButton action="#{usuarioSession.cambiarEstado(usu)}" class="btn btn-outline-danger" value="Estado"></h:commandButton>
+                                                                    <h:commandButton action="#{usuarioSession.guardaTemporal(usu)}" class="btn btn-outline-success" value="Actualizar"></h:commandButton>
+
+                                                                </td>     
+
+                                                            </tr> 
+                                                        </c:if>
+                                                    </c:forEach>
+
+                                                </h:form>
+
                                             </tbody>
                                         </table>
                                     </div>

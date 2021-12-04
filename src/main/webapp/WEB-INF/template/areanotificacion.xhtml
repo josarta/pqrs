@@ -141,11 +141,14 @@
                                     <p class="mb-1 mt-3 font-weight-semibold">${nombreUsuario}</p>
                                     <p class="font-weight-light text-muted mb-0">${correoUsuario}</p>
                                 </div>
-                                <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                                <a class="dropdown-item" href="../usuario/index.xhtml">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
                                 <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
                                 <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
                                 <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
-                                <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+                                <h:form>
+                                    <h:commandLink action="#{usuarioSession.cerrarSesion()}" class="dropdown-item" >Sign Out<i class="dropdown-item-icon ti-power-off"></i></h:commandLink>
+                                </h:form>
+                               
                             </div>
                         </li>
                     </ul>

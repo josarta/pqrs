@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+        <div class="content-wrapper">
+            <!-- Page Title Header Starts-->
+            <div class="row page-title-header">
+                <div class="col-12">
+                    <div class="page-header">
+                        <h4 class="page-title">Mis Datos</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-2 grid-margin stretch-card">
+
+                </div>
+                <div class="col-md-8 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-0">Actualizar mis datos</h4>
+                            <h:form>
+
+                                <div class="form-group">
+                                    <h:outputLabel for="exampleTypeDocument">Type Document</h:outputLabel>
+                                    <h:selectOneMenu disabled="true" value="#{usuarioSession.usuLogin.usuTipodocumento}" id="exampleTypeDocument" class="form-control">
+                                        <f:selectItem itemLabel="Cedula" itemValue="Cedula"></f:selectItem>
+                                        <f:selectItem itemLabel="Pasaporte" itemValue="Pasaporte"></f:selectItem>
+                                        <f:selectItem itemLabel="T. Identidad" itemValue="T. Identidad"></f:selectItem>
+                                        <f:selectItem itemLabel="Otros." itemValue="Otros."></f:selectItem>
+                                    </h:selectOneMenu>
+
+                                    <small id="typeDocumentHelp" class="form-text text-muted">
+                                        <h:message for="exampleTypeDocument" style="color: red"></h:message>
+                                    </small>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel for="exampleDocument">Document</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        disabled="true"
+                                        value="#{usuarioSession.usuLogin.usuDocumento}"
+                                        html5:type="number"
+                                        requiredMessage="Ingresar un numero de documento valido."
+                                        class="form-control" 
+                                        id="exampleDocument" />
+                                    <small id="documentHelp" class="form-text text-muted">
+                                        <h:message for="exampleDocument" style="color: red"></h:message>
+                                    </small>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel for="exampleNames">Names</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        value="#{usuarioSession.usuLogin.usuNombres}"
+                                        requiredMessage="Ingresar un nombre valido."
+                                        class="form-control" 
+                                        id="exampleNames" />
+                                    <small id="namesHelp" class="form-text text-muted">
+                                        <h:message for="exampleNames" style="color: red"></h:message>
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel for="exampleLastNames">Last name</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        value="#{usuarioSession.usuLogin.usuApellidos}"
+                                        requiredMessage="Ingresar un apellido valido."
+                                        class="form-control" 
+                                        id="exampleLastNames" />
+                                    <small id="lastNamesHelp" class="form-text text-muted">
+                                        <h:message for="exampleLastNames" style="color: red"></h:message>
+                                    </small>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel for="exampleInputEmail3">Email address</h:outputLabel>
+                                    <h:inputText 
+                                        required="true"
+                                        disabled="true"
+                                        value="#{usuarioSession.usuLogin.usuCorreoelectronico}"
+                                        requiredMessage="Ingresar un valor valido."
+                                        html5:type="email"  
+                                        class="form-control" 
+                                        id="exampleInputEmail3" />
+                                    <small id="emailHelp3" class="form-text text-muted">
+                                        <h:message for="exampleInputEmail3" style="color: red"></h:message>
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel for="exampleInputPassword2">Password</h:outputLabel>
+                                    <h:inputSecret 
+                                        required="true"
+                                        value="#{usuarioSession.usuLogin.usuClave}"
+                                        requiredMessage="Ingresar un valor valido."
+                                        class="form-control" 
+                                        id="exampleInputPassword2"/>
+                                    <small id="passwordHelp2" class="form-text text-muted">
+                                        <h:message for="exampleInputPassword2" style="color: red"></h:message>
+                                    </small>
+                                </div>
+                                <br/>
+
+                                <h:commandButton action="#{usuarioSession.actualizarMisDatos()}" class="btn btn-primary" value="Submit"></h:commandButton>
+                            </h:form>    
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 grid-margin stretch-card">
+
+                </div>
+            </div>
+
+        </div>
+    </ui:composition>
+</html>
+
